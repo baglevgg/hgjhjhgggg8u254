@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & Features - FIXU</title>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --border: #334155;
+            --glow: rgba(59, 130, 246, 0.3);
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Header styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px var(--glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Main content */
+        .main {
+            padding-top: 100px;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 8rem 0 6rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3)); }
+            to { filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.5)); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .about-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+        }
+
+        .about-card:hover::before {
+            left: 100%;
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            background: rgba(30, 41, 59, 0.3);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .feature-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 0.3rem 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .plan-period {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .plan-features li.unavailable {
+            opacity: 0.5;
+        }
+
+        .plan-features li.unavailable::before {
+            content: '✗';
+            color: var(--text-secondary);
+        }
+
+        .plan-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .plan-button.primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .plan-button.secondary {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Black Plan Styles */
+        .black-plan {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 20, 0.9));
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        .black-plan::before {
+            content: 'Exclusive';
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #000, #333);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #666;
+        }
+
+        .black-plan .plan-name {
+            background: linear-gradient(135deg, #fff, #ccc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .black-plan .plan-price {
+            background: linear-gradient(135deg, #fff, #999);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 1.8rem;
+        }
+
+        .invitation-code {
+            margin-top: 1rem;
+        }
+
+        .invite-input {
+            background: rgba(0, 0, 0, 0.5) !important;
+            border: 1px solid #444 !important;
+            color: var(--text-primary) !important;
+        }
+
+        .invite-input:focus {
+            border-color: #666 !important;
+            box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.2) !important;
+        }
+
+        .invite-button {
+            background: linear-gradient(135deg, #000, #333) !important;
+            border: 1px solid #666;
+        }
+
+        .invite-button:hover {
+            background: linear-gradient(135deg, #333, #000) !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* About Me Section */
+        .about-me {
+            background: rgba(30, 41, 59, 0.3);
+            padding: 6rem 0;
+        }
+
+        .about-me-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+            margin-bottom: 2rem;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto 2rem;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .profile-title {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .bio-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .bio-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-me-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">FIXU</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" class="active">About</a></li>
+                <li><a href="/docs">Docs</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">About FIXU</h1>
+                <p class="hero-subtitle">
+                    Revolutionary code scanning and fixing platform that helps developers 
+                    write better, more secure code with AI-powered assistance.
+                </p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">🚀</div>
+                        <h3 class="card-title">Our Mission</h3>
+                        <p class="card-description">
+                            To empower developers worldwide with intelligent tools that automatically 
+                            detect, analyze, and fix code issues, making software development faster, 
+                            safer, and more reliable.
+                        </p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">🔧</div>
+                        <h3 class="card-title">What We Do</h3>
+                        <p class="card-description">
+                            FIXU combines advanced AI algorithms with deep code analysis to provide 
+                            real-time scanning, intelligent suggestions, and automated fixes for 
+                            bugs, security vulnerabilities, and performance issues.
+                        </p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">⚡</div>
+                        <h3 class="card-title">Why Choose Us</h3>
+                        <p class="card-description">
+                            With lightning-fast scanning, 99.9% accuracy, and support for 50+ 
+                            programming languages, FIXU helps teams ship better code faster while 
+                            reducing technical debt and security risks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section features">
+            <div class="container">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">
+                    Everything you need to build better software, all in one platform
+                </p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">🔍</div>
+                            <h3 class="feature-title">Smart Code Scanning</h3>
+                        </div>
+                        <p class="feature-description">
+                            Advanced AI-powered scanning that detects issues across your entire codebase
+                        </p>
+                        <ul class="feature-list">
+                            <li>Real-time vulnerability detection</li>
+                            <li>Performance bottleneck identification</li>
+                            <li>Code quality analysis</li>
+                            <li>Security threat assessment</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">🤖</div>
+                            <h3 class="feature-title">AI-Powered Fixes</h3>
+                        </div>
+                        <p class="feature-description">
+                            Intelligent suggestions and automated fixes powered by machine learning
+                        </p>
+                        <ul class="feature-list">
+                            <li>One-click bug fixes</li>
+                            <li>Smart refactoring suggestions</li>
+                            <li>Code optimization recommendations</li>
+                            <li>Best practice enforcement</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">📊</div>
+                            <h3 class="feature-title">Detailed Analytics</h3>
+                        </div>
+                        <p class="feature-description">
+                            Comprehensive insights and reports to track your code quality over time
+                        </p>
+                        <ul class="feature-list">
+                            <li>Code quality metrics</li>
+                            <li>Technical debt tracking</li>
+                            <li>Team performance insights</li>
+                            <li>Custom dashboard views</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">🔗</div>
+                            <h3 class="feature-title">Seamless Integration</h3>
+                        </div>
+                        <p class="feature-description">
+                            Easy integration with your existing development workflow and tools
+                        </p>
+                        <ul class="feature-list">
+                            <li>GitHub/GitLab integration</li>
+                            <li>CI/CD pipeline support</li>
+                            <li>IDE plugins available</li>
+                            <li>API access for custom tools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="section pricing">
+            <div class="container">
+                <h2 class="section-title">Choose Your Plan</h2>
+                <p class="section-subtitle">
+                    Start free and scale as you grow. All plans include our core features.
+                </p>
+                
+                <div class="pricing-grid">
+                    <!-- Free Plan -->
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Free</h3>
+                        <div class="plan-price">$0</div>
+                        <div class="plan-period">Forever free</div>
+                        <ul class="plan-features">
+                            <li>Up to 5 repositories</li>
+                            <li>Basic code scanning</li>
+                            <li>Essential bug detection</li>
+                            <li>Email support</li>
+                            <li>100% secure & safe</li>
+                            <li class="unavailable">Advanced AI fixes</li>
+                            <li class="unavailable">Priority support</li>
+                            <li class="unavailable">Server integration</li>
+                        </ul>
+                        <a href="#" class="plan-button secondary">Get Started Free</a>
+                    </div>
+
+                    <!-- Plus Plan -->
+                    <div class="pricing-card featured">
+                        <h3 class="plan-name">Plus</h3>
+                        <div class="plan-price">$29</div>
+                        <div class="plan-period">per month</div>
+                        <ul class="plan-features">
+                            <li>Up to 50 repositories</li>
+                            <li>Advanced code scanning</li>
+                            <li>AI-powered bug fixes</li>
+                            <li>Security vulnerability detection</li>
+                            <li>Performance optimization</li>
+                            <li>Email support</li>
+                            <li>100% secure & safe</li>
+                            <li class="unavailable">Server integration</li>
+                        </ul>
+                        <a href="#" class="plan-button primary">Buy Plus - $29/mo</a>
+                    </div>
+
+                    <!-- Pro Plan -->
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Pro</h3>
+                        <div class="plan-price">$99</div>
+                        <div class="plan-period">per month</div>
+                        <ul class="plan-features">
+                            <li>Unlimited repositories</li>
+                            <li>Enterprise-grade scanning</li>
+                            <li>Advanced AI fixes & refactoring</li>
+                            <li>Custom rule configurations</li>
+                            <li>Team collaboration tools</li>
+                            <li>Priority email support</li>
+                            <li>Server integration options</li>
+                            <li>100% secure & safe</li>
+                        </ul>
+                        <a href="#" class="plan-button secondary">Buy Pro - $99/mo</a>
+                    </div>
+
+                    <!-- Black Plan -->
+                    <div class="pricing-card black-plan">
+                        <h3 class="plan-name">Black</h3>
+                        <div class="plan-price">Invite Only</div>
+                        <div class="plan-period">Exclusive access</div>
+                        <ul class="plan-features">
+                            <li>Everything in Pro +</li>
+                            <li>White-label solutions</li>
+                            <li>Dedicated server deployment</li>
+                            <li>24/7 dedicated support</li>
+                            <li>Custom AI model training</li>
+                            <li>Enterprise SLA</li>
+                            <li>On-premise installation</li>
+                            <li>100% secure & guaranteed</li>
+                        </ul>
+                        <div class="invitation-code">
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
+                                Requires invitation code
+                            </p>
+                            <input type="text" placeholder="Enter invitation code" class="invite-input" style="width: 100%; padding: 0.8rem; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); margin-bottom: 1rem;">
+                            <a href="#" class="plan-button primary invite-button">Verify & Access</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="section about-me">
+            <div class="container">
+                <h2 class="section-title">Meet the Creator</h2>
+                <div class="about-me-content">
+                    <div class="profile-section">
+                        <div class="profile-image">👨‍💻</div>
+                        <h3 class="profile-name">Alex Johnson</h3>
+                        <p class="profile-title">Founder & Lead Developer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">📧</a>
+                            <a href="#" class="social-link">🐙</a>
+                            <a href="#" class="social-link">💼</a>
+                            <a href="#" class="social-link">🐦</a>
+                        </div>
+                    </div>
+                    <div class="bio-section">
+                        <h3>About Me</h3>
+                        <p class="bio-text">
+                            Hey there! I'm Alex, a passionate software engineer with over 8 years of experience 
+                            in full-stack development and AI/ML. I created FIXU after experiencing countless 
+                            hours debugging code and wished there was a smarter way to catch issues before 
+                            they become problems.
+                        </p>
+                        <p class="bio-text">
+                            With a background in computer science from Stanford and previous experience at 
+                            companies like Google and Microsoft, I've seen firsthand how code quality impacts 
+                            entire organizations. FIXU is my mission to democratize access to enterprise-level 
+                            code analysis tools for developers everywhere.
+                        </p>
+                        <p class="bio-text">
+                            When I'm not coding, you can find me hiking in the mountains, playing chess, 
+                            or contributing to open-source projects. I believe in building tools that 
+                            make developers' lives easier and more productive.
+                        </p>
+                        <div class="skills">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">AI/ML</span>
+                            <span class="skill-tag">DevOps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.about-card, .feature-card, .pricing-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add click handlers for pricing buttons
+        document.querySelectorAll('.plan-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                if (button.classList.contains('invite-button')) {
+                    const inviteCode = button.previousElementSibling.value.trim();
+                    if (inviteCode) {
+                        if (inviteCode === 'FIXU2024' || inviteCode === 'BLACKACCESS') {
+                            alert('🎉 Invitation code verified! Welcome to FIXU Black. Redirecting to setup...');
+                        } else {
+                            alert('❌ Invalid invitation code. Please contact us for access.');
+                        }
+                    } else {
+                        alert('Please enter your invitation code first.');
+                    }
+                    return;
+                }
+                
+                const planName = button.closest('.pricing-card').querySelector('.plan-name').textContent;
+                if (planName === 'Free') {
+                    alert(`🚀 Welcome to FIXU Free! Creating your account...`);
+                } else {
+                    alert(`💳 Redirecting to secure payment for ${planName} plan. 100% safe and secure!`);
+                }
+            });
+        });
+
+        // Add hover effects for social links
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('This would open the respective social profile!');
+            });
+        });
+    </script>
+</body>
+</html>
