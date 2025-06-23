@@ -17,7 +17,6 @@
             --border: #334155;
             --glow: rgba(59, 130, 246, 0.3);
             --success: #10b981;
-            --warning: #f59e0b;
         }
 
         * {
@@ -326,200 +325,6 @@
             font-weight: bold;
         }
 
-        /* Pricing Section */
-        .pricing {
-            padding: 6rem 0;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .pricing-card {
-            background: rgba(30, 41, 59, 0.5);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
-        }
-
-        .pricing-card.featured:hover {
-            transform: translateY(-10px) scale(1.05);
-        }
-
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-        }
-
-        .plan-price {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .plan-period {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .plan-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .plan-features li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .plan-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        .plan-features li.unavailable {
-            opacity: 0.5;
-        }
-
-        .plan-features li.unavailable::before {
-            content: '✗';
-            color: var(--text-secondary);
-        }
-
-        .plan-button {
-            width: 100%;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .plan-button.primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .plan-button.secondary {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .plan-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Black Plan Styles */
-        .black-plan {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 20, 0.9));
-            border: 2px solid #333;
-            position: relative;
-        }
-
-        .black-plan::before {
-            content: 'Exclusive';
-            position: absolute;
-            top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #000, #333);
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 1px solid #666;
-        }
-
-        .black-plan .plan-name {
-            background: linear-gradient(135deg, #fff, #ccc);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .black-plan .plan-price {
-            background: linear-gradient(135deg, #fff, #999);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            font-size: 1.8rem;
-        }
-
-        .invitation-code {
-            margin-top: 1rem;
-        }
-
-        .invite-input {
-            background: rgba(0, 0, 0, 0.5) !important;
-            border: 1px solid #444 !important;
-            color: var(--text-primary) !important;
-        }
-
-        .invite-input:focus {
-            border-color: #666 !important;
-            box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.2) !important;
-        }
-
-        .invite-button {
-            background: linear-gradient(135deg, #000, #333) !important;
-            border: 1px solid #666;
-        }
-
-        .invite-button:hover {
-            background: linear-gradient(135deg, #333, #000) !important;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
-        }
-
         /* About Me Section */
         .about-me {
             background: rgba(30, 41, 59, 0.3);
@@ -543,15 +348,8 @@
             border-radius: 50%;
             border: 4px solid var(--primary);
             box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-            margin-bottom: 2rem;
-            object-fit: cover;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
             margin: 0 auto 2rem;
+            object-fit: cover;
         }
 
         .profile-name {
@@ -570,34 +368,6 @@
             margin-bottom: 1rem;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: rgba(59, 130, 246, 0.1);
-            border: 2px solid var(--primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.5rem;
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
         .bio-section h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
@@ -609,6 +379,17 @@
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 2rem;
+        }
+
+        .sanskrit-quote {
+            font-style: italic;
+            color: var(--accent);
+            text-align: center;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
         }
 
         .skills {
@@ -636,14 +417,6 @@
             .about-me-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-            }
-
-            .pricing-card.featured {
-                transform: none;
-            }
-
-            .pricing-card.featured:hover {
-                transform: translateY(-10px);
             }
 
             .nav-links {
@@ -807,117 +580,36 @@
             </div>
         </section>
 
-        <!-- Pricing Section -->
-        <section class="section pricing">
-            <div class="container">
-                <h2 class="section-title">Choose Your Plan</h2>
-                <p class="section-subtitle">
-                    Start free and scale as you grow. All plans include our core features.
-                </p>
-                
-                <div class="pricing-grid">
-                    <!-- Free Plan -->
-                    <div class="pricing-card">
-                        <h3 class="plan-name">Free</h3>
-                        <div class="plan-price">$0</div>
-                        <div class="plan-period">Forever free</div>
-                        <ul class="plan-features">
-                            <li>Up to 2 repositories</li>
-                            <li>Basic code scanning</li>
-                            <li>Essential bug detection</li>
-                            <li>Email support</li>
-                            <li>100% secure & safe</li>
-                            <li class="unavailable">Advanced AI fixes</li>
-                            <li class="unavailable">Priority support</li>
-                            <li class="unavailable">Server integration</li>
-                        </ul>
-                        <a href="#" class="plan-button secondary">Get Started Free</a>
-                    </div>
-
-                    <!-- Plus Plan -->
-                    <div class="pricing-card featured">
-                        <h3 class="plan-name">Plus</h3>
-                        <div class="plan-price">$29</div>
-                        <div class="plan-period">per month</div>
-                        <ul class="plan-features">
-                            <li>Up to 50 repositories</li>
-                            <li>Advanced code scanning</li>
-                            <li>AI-powered bug fixes</li>
-                            <li>Security vulnerability detection</li>
-                            <li>Performance optimization</li>
-                            <li>Email support</li>
-                            <li>100% secure & safe</li>
-                            <li class="unavailable">Server integration</li>
-                        </ul>
-                        <a href="#" class="plan-button primary">Buy Plus - $29/mo</a>
-                    </div>
-
-                    <!-- Pro Plan -->
-                    <div class="pricing-card">
-                        <h3 class="plan-name">Pro</h3>
-                        <div class="plan-price">$99</div>
-                        <div class="plan-period">per month</div>
-                        <ul class="plan-features">
-                            <li>Unlimited repositories</li>
-                            <li>Enterprise-grade scanning</li>
-                            <li>Advanced AI fixes & refactoring</li>
-                            <li>Custom rule configurations</li>
-                            <li>Team collaboration tools</li>
-                            <li>Priority email support</li>
-                            <li>Server integration options</li>
-                            <li>100% secure & safe</li>
-                        </ul>
-                        <a href="#" class="plan-button secondary">Buy Pro - $99/mo</a>
-                    </div>
-
-                    <!-- Black Plan -->
-                    <div class="pricing-card black-plan">
-                        <h3 class="plan-name">Black</h3>
-                        <div class="plan-price">Invite Only</div>
-                        <div class="plan-period">Exclusive access</div>
-                        <ul class="plan-features">
-                            <li>Everything in Pro +</li>
-                            <li>White-label solutions</li>
-                            <li>Dedicated server deployment</li>
-                            <li>24/7 dedicated support</li>
-                            <li>Custom AI model training</li>
-                            <li>Enterprise SLA</li>
-                            <li>On-premise installation</li>
-                            <li>100% secure & guaranteed</li>
-                        </ul>
-                        <div class="invitation-code">
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
-                                Requires invitation code
-                            </p>
-                            <input type="text" placeholder="Enter invitation code" class="invite-input" style="width: 100%; padding: 0.8rem; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); margin-bottom: 1rem;">
-                            <a href="#" class="plan-button primary invite-button">Verify & Access</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- About Me Section -->
         <section class="section about-me">
             <div class="container">
                 <h2 class="section-title">Meet the Creator</h2>
                 <div class="about-me-content">
                     <div class="profile-section">
-                        <div class="profile-image">👨‍💻</div>
-                        <h3 class="profile-name">Gaurav Dhakal</h3>
+                        <img src="https://sdmntpraustraliaeast.oaiusercontent.com/files/00000000-1a04-61fa-8364-2b3575918a27/raw?se=2025-06-23T09%3A57%3A35Z&sp=r&sv=2024-08-04&sr=b&scid=c8c2378f-38e1-5df0-bdb6-517c8325b408&skoid=0da8417a-a4c3-4a19-9b05-b82cee9d8868&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-23T00%3A10%3A49Z&ske=2025-06-24T00%3A10%3A49Z&sks=b&skv=2024-08-04&sig=MpXR%2Bi0u5GGOgJnomABLVqsNvtZZhYEgmjT7yKgVErY%3D" alt="Gaurav's Profile" class="profile-image">
+                        <h3 class="profile-name">Gaurav</h3>
                         <p class="profile-title">Founder & Lead Developer</p>
-                        
-  Hey there! I'm Gaurav, a curious and driven student currently studying in class 
-  <span id="class"></span>. I'm <span id="age"></span> years old and passionate about software development and AI/ML.
-  Even at this age, I work with Microsoft through student programs and learning initiatives.
-</p>
-<p>
-  I created <strong>FIXU</strong> to help students and developers like me catch bugs smarter and faster, inspired by the challenges I faced in coding.
-</p>
-<p>
-  When I'm not studying or coding, you’ll find me exploring tech, playing chess, or learning from open-source projects. I believe great tools should be for everyone — no matter their age or experience.
-</p>
-
+                    </div>
+                    <div class="bio-section">
+                        <h3>About Me</h3>
+                        <p class="bio-text">
+                            Hey there! I'm Gaurav, a curious student currently studying in class 
+                            <span id="class"></span>. I'm <span id="age"></span> years old and passionate about software development and AI/ML. 
+                            I created FIXU after spending many hours debugging code and wishing for a smarter way to catch problems early.
+                        </p>
+                        <p class="bio-text">
+                            Though still a student, I've had the chance to explore programming deeply and even work with FIXU through learning coding. 
+                            FIXU is my mission to make powerful code analysis tools accessible to developers everywhere.
+                        </p>
+                        <p class="bio-text">
+                            When I'm not coding or studying, you can find me playing chess, learning from open-source projects, or exploring new tech ideas. 
+                            I believe in building tools that make learning and developing more fun and effective for everyone.
+                        </p>
+                        <div class="sanskrit-quote">
+                            मा शोकं कुरु।<br>
+                            असफलता एव सफलतायाः प्रारम्भः।<br>
+                            स्वप्नं पश्य, विश्वासं कुरु, लक्ष्यं साधय।
+                        </div>
                         <div class="skills">
                             <span class="skill-tag">JavaScript</span>
                             <span class="skill-tag">Python</span>
@@ -925,7 +617,7 @@
                             <span class="skill-tag">React</span>
                             <span class="skill-tag">Node.js</span>
                             <span class="skill-tag">AI/ML</span>
-                            <span class="skill-tag">DevOps</span>
+                            <span class="skill-tag">Student Developer</span>
                         </div>
                     </div>
                 </div>
@@ -934,6 +626,33 @@
     </main>
 
     <script>
+        // Auto-updating age and class calculation
+        const birthYear = 2013;
+        const birthMonth = 8; // August
+        const birthDay = 21;
+        
+        function updateAgeAndClass() {
+            const today = new Date();
+            let age = today.getFullYear() - birthYear;
+            const monthNow = today.getMonth() + 1;
+            const dayNow = today.getDate();
+
+            if (monthNow < birthMonth || (monthNow === birthMonth && dayNow < birthDay)) {
+                age--;
+            }
+
+            let currentClass = age - 5;
+            if (currentClass < 1) currentClass = 1;
+            if (currentClass > 12) currentClass = 12;
+
+            document.getElementById("age").textContent = age;
+            document.getElementById("class").textContent = currentClass;
+        }
+
+        // Update immediately and then every day
+        updateAgeAndClass();
+        setInterval(updateAgeAndClass, 24 * 60 * 60 * 1000);
+
         // Add scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -950,65 +669,12 @@
         }, observerOptions);
 
         // Observe all cards and sections
-        document.querySelectorAll('.about-card, .feature-card, .pricing-card').forEach(card => {
+        document.querySelectorAll('.about-card, .feature-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'all 0.6s ease';
             observer.observe(card);
         });
-
-        // Add click handlers for pricing buttons
-        document.querySelectorAll('.plan-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                if (button.classList.contains('invite-button')) {
-                    const inviteCode = button.previousElementSibling.value.trim();
-                    if (inviteCode) {
-                        if (inviteCode === 'FIXU2024' || inviteCode === 'BLACKACCESS') {
-                            alert('🎉 Invitation code verified! Welcome to FIXU Black. Redirecting to setup...');
-                        } else {
-                            alert('❌ Invalid invitation code. Please contact us for access.');
-                        }
-                    } else {
-                        alert('Please enter your invitation code first.');
-                    }
-                    return;
-                }
-                
-                const planName = button.closest('.pricing-card').querySelector('.plan-name').textContent;
-                if (planName === 'Free') {
-                    alert(`🚀 Welcome to FIXU Free! Creating your account...`);
-                } else {
-                    alert(`💳 Redirecting to secure payment for ${planName} plan. 100% safe and secure!`);
-                }
-            });
-        });
-<script>
-  const birthYear = 2013;
-  const birthMonth = 8; // August (1-indexed for display, 0-indexed in JS)
-  const birthDate = 21;
-  const today = new Date();
-  
-  let age = today.getFullYear() - birthYear;
-  if (
-    today.getMonth() + 1 < birthMonth || 
-    (today.getMonth() + 1 === birthMonth && today.getDate() < birthDate)
-  ) {
-    age--;
-  }
-
-  let currentClass = age - 5;
-  if (currentClass < 1) currentClass = 1;
-  if (currentClass > 12) currentClass = 12;
-
-  document.getElementById("age").textContent = age;
-  document.getElementById("class").textContent = currentClass;
-
-        // Add hover effects for social links
-        document.querySelectorAll('.social-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('This would open the respective social profile!');
-            });
-        });
+    </script>
+</body>
+</html>
