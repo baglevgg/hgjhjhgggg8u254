@@ -904,34 +904,20 @@
                 <div class="about-me-content">
                     <div class="profile-section">
                         <div class="profile-image">👨‍💻</div>
-                        <h3 class="profile-name">Alex Johnson</h3>
+                        <h3 class="profile-name">Gaurav Dhakal</h3>
                         <p class="profile-title">Founder & Lead Developer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link">📧</a>
-                            <a href="#" class="social-link">🐙</a>
-                            <a href="#" class="social-link">💼</a>
-                            <a href="#" class="social-link">🐦</a>
-                        </div>
-                    </div>
-                    <div class="bio-section">
-                        <h3>About Me</h3>
-                        <p class="bio-text">
-                            Hey there! I'm Alex, a passionate software engineer with over 8 years of experience 
-                            in full-stack development and AI/ML. I created FIXU after experiencing countless 
-                            hours debugging code and wished there was a smarter way to catch issues before 
-                            they become problems.
-                        </p>
-                        <p class="bio-text">
-                            With a background in computer science from Stanford and previous experience at 
-                            companies like Google and Microsoft, I've seen firsthand how code quality impacts 
-                            entire organizations. FIXU is my mission to democratize access to enterprise-level 
-                            code analysis tools for developers everywhere.
-                        </p>
-                        <p class="bio-text">
-                            When I'm not coding, you can find me hiking in the mountains, playing chess, 
-                            or contributing to open-source projects. I believe in building tools that 
-                            make developers' lives easier and more productive.
-                        </p>
+                        
+  Hey there! I'm Gaurav, a curious and driven student currently studying in class 
+  <span id="class"></span>. I'm <span id="age"></span> years old and passionate about software development and AI/ML.
+  Even at this age, I work with Microsoft through student programs and learning initiatives.
+</p>
+<p>
+  I created <strong>FIXU</strong> to help students and developers like me catch bugs smarter and faster, inspired by the challenges I faced in coding.
+</p>
+<p>
+  When I'm not studying or coding, you’ll find me exploring tech, playing chess, or learning from open-source projects. I believe great tools should be for everyone — no matter their age or experience.
+</p>
+
                         <div class="skills">
                             <span class="skill-tag">JavaScript</span>
                             <span class="skill-tag">Python</span>
@@ -998,6 +984,26 @@
                 }
             });
         });
+<script>
+  const birthYear = 2013;
+  const birthMonth = 8; // August (1-indexed for display, 0-indexed in JS)
+  const birthDate = 21;
+  const today = new Date();
+  
+  let age = today.getFullYear() - birthYear;
+  if (
+    today.getMonth() + 1 < birthMonth || 
+    (today.getMonth() + 1 === birthMonth && today.getDate() < birthDate)
+  ) {
+    age--;
+  }
+
+  let currentClass = age - 5;
+  if (currentClass < 1) currentClass = 1;
+  if (currentClass > 12) currentClass = 12;
+
+  document.getElementById("age").textContent = age;
+  document.getElementById("class").textContent = currentClass;
 
         // Add hover effects for social links
         document.querySelectorAll('.social-link').forEach(link => {
@@ -1006,6 +1012,3 @@
                 alert('This would open the respective social profile!');
             });
         });
-    </script>
-</body>
-</html>
